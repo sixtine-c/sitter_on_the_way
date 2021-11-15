@@ -1,0 +1,2 @@
+class ProfileSittersController < ApplicationController
+end
