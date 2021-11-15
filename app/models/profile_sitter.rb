@@ -1,0 +1,2 @@
+class ProfileSitter < ApplicationRecord
+end
