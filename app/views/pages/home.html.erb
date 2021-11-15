@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+<h1>Sitter on the way</h1>
+<h4>Need a sitter for your fantastic pet ?</h4>
+<% simple_form_for @element do |f| %>
+  <%= f.input :from, as: :date %>
+  <%= f.input :to, as: :date %>
+  <%= f.associations :species, collection: Profile_sitter::SPECIES %>
+<% end %>
+<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="search-form-control form-group">
+    <div>
+      <label for="from">From:</label>
+      <input class="form-control string required" type="date" name="search[query]" id="search_query" />
+    </div>
+    <div>
+      <label for="to">To:</label>
+      <input class="form-control string required" type="date" name="search[query]" placeholder="to" id="search_query" />
+    </div>
+      <input class="form-control string required" type="text" name="search[query]" placeholder="to" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+</form>
+</div>
