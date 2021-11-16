@@ -3,6 +3,7 @@ class ProfileSitterPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def index?
       true
@@ -11,5 +12,5 @@ class ProfileSitterPolicy < ApplicationPolicy
     def show?
       true
     end
-  end
+
 end
