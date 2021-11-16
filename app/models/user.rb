@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :bookings
 
   validates :email, presence: true, uniqueness: true
+  has_one_attached :photo
 end

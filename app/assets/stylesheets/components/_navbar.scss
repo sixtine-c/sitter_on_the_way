@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height:50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,5 +10,13 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-  // background-image: asset-url('snake.png');
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto !important;
+}
+
+#home_navbar{
+  align-self: center;
 }
