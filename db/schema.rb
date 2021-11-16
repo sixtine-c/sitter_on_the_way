@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_114553) do
+
+ActiveRecord::Schema.define(version: 2021_11_16_141345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +51,12 @@ ActiveRecord::Schema.define(version: 2021_11_16_114553) do
 
   create_table "profile_sitters", force: :cascade do |t|
     t.text "description"
-    t.string "addess"
     t.date "start_date"
     t.date "end_date"
     t.bigint "user_id", null: false
-    t.string "dates"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
     t.index ["user_id"], name: "index_profile_sitters_on_user_id"
   end
 
