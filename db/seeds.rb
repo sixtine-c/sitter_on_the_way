@@ -9,8 +9,9 @@
 # Seed user
 
 puts 'destroying everything'
+Booking.destroy_all
+ProfileSitter.destroy_all
 User.destroy_all
-Profile.destroy_all
 
 puts 'Creating users'
 brice = User.create(first_name: 'Brice', last_name: 'Adjivon', email: 'brice@lewagon.com', password: 'jesuisBrice', password_confirmation: 'jesuisBrice')
@@ -25,9 +26,9 @@ nicolas_profile = ProfileSitter.create( description: 'profile sitter 3', addess:
 lilas_profile = ProfileSitter.create( description: 'profile sitter 4', addess: '3 Rue Geoffroy l\'Angevin 75004 Paris', user_id: lilas.id, start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'Creating bookings'
-Booking.create(user: brice.id, profile_sitter: brice_profile.id, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
-Booking.create(user: sixtine.id, profile_sitter: sixtine_profile.id, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
-Booking.create(user: nicolas.id, profile_sitter: nicolas_profile.id, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
-Booking.create(user: lilas.id, profile_sitter: lilas_profile.id, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
+Booking.create(user_id: brice.id, profile_sitter_id: brice_profile.id, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
+Booking.create(user_id: sixtine.id, profile_sitter_id: sixtine_profile.id, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
+Booking.create(user_id: nicolas.id, profile_sitter_id: nicolas_profile.id, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
+Booking.create(user_id: lilas.id, profile_sitter_id: lilas_profile.id, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'End...'
