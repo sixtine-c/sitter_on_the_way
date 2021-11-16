@@ -3,16 +3,14 @@
   font-family: 'Noto Sans', 'Liberation Sans';
 }
 
-.card-element {
-  background-color: rgb(231, 212, 212);
-  border-radius: 10px;
-  height: 180px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+// .card-element {
+//   background-color: rgb(231, 212, 212);
+//   border-radius: 10px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
 
 .cards-category {
   display: flex;
@@ -25,23 +23,27 @@
   position: relative;
 }
 
-.dates {
+.inner-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: rgb(231, 212, 212);
   text-align: center;
   border-radius: 5px;
-  width: 250px;
-  margin-top: 4px;
+  width: 238px;
+  margin: 6px;
+  padding: 4px;
 }
 
-.accept {
-  position: absolute;
-  bottom: 0;
-  background-color: rgb(231, 212, 212);
-  text-align: center;
-  border-radius: 5px;
-  width: 250px;
-  margin-top: 4px;
+#accept {
+  text-decoration: none;
   &:hover {
-    background-color: white;
+    color: white;
   }
+}
+
+#map {
+  border-radius: 5px;
+  margin: 6px;
 }
