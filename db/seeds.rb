@@ -26,9 +26,9 @@ nicolas_profile = ProfileSitter.create( description: 'profile sitter 3', addess:
 lilas_profile = ProfileSitter.create( description: 'profile sitter 4', addess: '3 Rue Geoffroy l\'Angevin 75004 Paris', user_id: lilas.id, start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'Creating bookings'
-Booking.create(user_id: brice.id, profile_sitter_id: brice_profile.id, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
-Booking.create(user_id: sixtine.id, profile_sitter_id: sixtine_profile.id, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
-Booking.create(user_id: nicolas.id, profile_sitter_id: nicolas_profile.id, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
-Booking.create(user_id: lilas.id, profile_sitter_id: lilas_profile.id, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
+Booking.create(user: brice, profile_sitter_id: brice_profile.id, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
+Booking.create(user: sixtine, profile_sitter_id: sixtine_profile.id, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
+Booking.create(user: nicolas, profile_sitter_id: nicolas_profile.id, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
+Booking.create(user: lilas, profile_sitter_id: lilas_profile.id, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'This is the end..'

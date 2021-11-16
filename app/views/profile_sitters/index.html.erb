@@ -1,0 +1,12 @@
+
+<% @profile_sitters.each do |profile_sitter| %>
+  <% user = @users.find(profile_sitter.user_id)  %>
+<div class="card" style="width: 18rem;">
+  <img src="../asstets/images/snake_sitter" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>
+    <p class="card-text"> <%= profile_sitter.description %></p>
+    <a href="#" class="btn btn-primary">See more</a>
+  </div>
+</div>
+<% end  %>
