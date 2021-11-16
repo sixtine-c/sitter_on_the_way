@@ -1,4 +1,3 @@
-<%# -------- When sitter -------- %>
 <div class="container">
   <div id='booking-title'>
     <h1>All my bookings</h1>
@@ -7,24 +6,43 @@
     <%= link_to "Sitter", "#", class: "btn-user-status" %>
     <%= link_to "Owner", "#", class: "btn-user-status" %>
   </div>
-  <div class="cards-category m-4">
-    <% @bookings.each do |booking| %>
-    <div class="card-element">
-      <p><%= booking.status %></p>
-      <div class="dates">
-      <%# <%= booking.profile_sitter.first_name %>
-        <p><%= booking.start_date %></p>
-        <p><%= booking.end_date %></p>
-      </div>
-    </div>
-    <div class="accept">
-      <%= link_to "Accept", "#", class: "btn btn-ghost" %>
-    </div>
+  <%# -------- When sitter -------- %>
+  <div class="">
+    <div class="cards-category m-4">
+      <% @bookings.each do |booking| %>
+        <div class="card-element">
+          <p><%= booking.status %></p>
+          <div class="dates">
+            <%# <%= booking.profile_sitter.first_name %>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.end_date %></p>
+          </div>
+        </div>
+        <div class="accept">
+          <%= link_to "Accept", "#", class: "btn btn-ghost" %>
+        </div>
       <% end %>
+    </div>
+  </div>
+  <%# -------- When Owner --------- %>
+  <div class="d-none">
+    <div class="cards-category m-4">
+      <% @bookings.each do |booking| %>
+        <div class="card-element">
+          <p><%= booking.status %></p>
+          <div class="dates">
+            <%# <%= booking.profile_sitter.first_name %>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.end_date %></p>
+          </div>
+        </div>
+        <div class="accept">
+          <%= link_to "Accept", "#", class: "btn btn-ghost" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-<%# -------- When Owner --------- %>
-
 
 
 <%# triple bouton, quand tu cliques sur 'no anwser' ou 'decline' ou 'accepted'
