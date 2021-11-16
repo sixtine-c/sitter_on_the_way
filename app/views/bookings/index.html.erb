@@ -1,0 +1,11 @@
+
+<h1>All my bookings</h1>
+<% @bookings.each do |booking| %>
+  <%= booking.status %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+<% end %>
+
+<%# triple bouton, quand tu cliques sur 'no anwser' ou 'decline' ou 'accepted'
+ il change le status avec la string en question --> javascript %>
+ <%# quand 'decline' la card se supprime de tous les bookings %>
