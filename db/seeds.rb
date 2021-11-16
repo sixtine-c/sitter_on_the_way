@@ -31,4 +31,4 @@ Booking.create(user_id: sixtine.id, profile_sitter_id: sixtine_profile.id, statu
 Booking.create(user_id: nicolas.id, profile_sitter_id: nicolas_profile.id, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
 Booking.create(user_id: lilas.id, profile_sitter_id: lilas_profile.id, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
 
-puts 'End...'
+puts 'This is the end..'
