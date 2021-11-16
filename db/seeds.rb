@@ -10,7 +10,7 @@
 
 puts 'destroying everything'
 User.destroy_all
-Profile.destroy_all
+ProfileSitter.destroy_all
 
 puts 'Creating users'
 brice = User.create(first_name: 'Brice', last_name: 'Adjivon', email: 'brice@lewagon.com', password: 'jesuisBrice', password_confirmation: 'jesuisBrice')
