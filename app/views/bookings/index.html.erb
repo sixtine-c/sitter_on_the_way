@@ -1,11 +1,28 @@
+<%# -------- When sitter -------- %>
+<div class="container">
+  <div id='booking-title'>
+    <h1>All my bookings</h1>
+  </div>
+  <div>
+  <%= link_to "Sitter", "#", class: "btn-user-status" %>
+  <%= link_to "Owner", "#", class: "btn-user-status" %>
+  </div>
+  <div class="cards-category m-4">
+    <% @bookings.each do |booking| %>
+    <div class="card-element">
+      <p><%= booking.status %></p>
+      <p><%= booking.start_date %></p>
+      <p><%= booking.end_date %></p>
+      <%= link_to "Accept", "#", class: "btn btn-ghost" %>
+    </div>
+      <% end %>
+  </div>
+</div>
+<%# -------- When Owner --------- %>
 
-<h1>All my bookings</h1>
-<% @bookings.each do |booking| %>
-  <%= booking.status %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-<% end %>
+
 
 <%# triple bouton, quand tu cliques sur 'no anwser' ou 'decline' ou 'accepted'
  il change le status avec la string en question --> javascript %>
  <%# quand 'decline' la card se supprime de tous les bookings %>
+<%# quand il clique sur 'accept' le booking est rajouté à ceux du pet owner %>
