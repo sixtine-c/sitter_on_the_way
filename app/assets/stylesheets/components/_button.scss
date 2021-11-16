@@ -23,3 +23,21 @@
     color: white;
   }
 }
+
+.btn-sitter {
+  background-color: rgb(231, 212, 212);
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);;
+  width: 250px;
+  &:hover {
+    background-color: white;
+
+  }
+  margin-left : 30%
+}
