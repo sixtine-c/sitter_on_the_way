@@ -1,2 +1,24 @@
-<h1>Sitter on the way</h1>
-<h4>Need a sitter for your fantastic pet?</h4>
+<div class="container home d-flex  ">
+  <div class="container home-text d-flex flex-column align-item-center mt-6 ">
+    <h1> Sitter on the way</h1>
+    <p> Need a sitter for your fantastic pet?</p>
+  </div>
+
+  <div class="container-searchform">
+    <%= simple_form_for(@sitter_profiles) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :stars %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  </div>
+  <%# <%= render '/searchbar'  %> %>
+</div>
