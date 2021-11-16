@@ -26,9 +26,9 @@ nicolas_profile = ProfileSitter.create( description: 'profile sitter 3', address
 lilas_profile = ProfileSitter.create( description: 'profile sitter 4', address: '3 Rue Geoffroy l\'Angevin 75004 Paris', user: lilas, start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'Creating bookings'
-Booking.create(user: brice, profile_sitter: brice_profile, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
-Booking.create(user: sixtine, profile_sitter: sixtine_profile, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
-Booking.create(user: nicolas, profile_sitter: nicolas_profile, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
-Booking.create(user: lilas, profile_sitter: lilas_profile, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
+Booking.create(user: brice, profile_sitter: sixtine_profile, status: 'No answer', start_date: '2021-11-16', end_date: '2021-12-03')
+Booking.create(user: sixtine, profile_sitter: nicolas_profile, status: 'Decline', start_date: '2021-12-03', end_date: '2021-12-15')
+Booking.create(user: nicolas, profile_sitter: lilas_profile, status: 'Accepted', start_date: '2022-01-03', end_date: '2022-02-15')
+Booking.create(user: lilas, profile_sitter: brice_profile, status: 'No answer', start_date: '2022-02-03', end_date: '2022-03-15')
 
 puts 'This is the end..'
