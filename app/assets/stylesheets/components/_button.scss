@@ -1,10 +1,25 @@
+.container {
+  position: relative;
+}
+
+.btn-user {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+}
+
 .btn-user-status {
-  background-color: aqua;
+  background-color: #cac3c5;
   border-radius: 5px;
   color: black;
   text-decoration: none;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);;
   &:hover {
-    background-color: blue;
+    background-color: #b3a3a8;
+    color: white;
   }
 }
