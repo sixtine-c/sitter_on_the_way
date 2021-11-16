@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+
 }
 
 // Smallest device
@@ -45,4 +46,5 @@
     height: 200px;
     width: 100%;
   }
+  background-color: white;
 }
