@@ -6,14 +6,14 @@
     <%= link_to "Sitter", "#", class: "btn-user-status" %>
     <%= link_to "Owner", "#", class: "btn-user-status" %>
   </div>
-  <% if @bookings.any? %>
     <%# <% if @booking.profile_sitter.id == current_user.id %>
     <%# stocker booking avec .profile_sitter.id == current_user.id dans un array %>
     <%# demander a un TA %>
       <%# -------- When sitter -------- %>
+  <% if @bookings.any? %>
     <div class="">
-        <div class="card-container">
-          <% @bookings.each do |booking| %>
+      <div class="card-container">
+        <% @bookings.each do |booking| %>
           <div class="cards-category m-4">
               <div class="inner-card">
                 <h4><%= booking.profile_sitter.user.first_name %></h4>
@@ -26,17 +26,13 @@
               <div class="inner-card">
                 <p><%= booking.status %></p>
               </div>
-              <div class="inner-card buttons-a-d" id='accept'>
-                <div>
-                  <%= link_to "Accept", accepts_booking_path(booking), method: :patch, class: "btn btn-ghost" %>
-                </div>
-                <div>
-                  <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-ghost" %>
-                </div>
+              <div class="d-flex justify-content-around mb-3" id='accept'>
+                <%= link_to "Accept", accepts_booking_path(booking), method: :patch, class: "btn-planning small" %>
+                <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn-planning small" %>
               </div>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+      </div>
 
         <%# -------- When Owner --------- %>
         <div class="d-none">
