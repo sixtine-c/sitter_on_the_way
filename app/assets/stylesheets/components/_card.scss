@@ -56,12 +56,18 @@
 }
 
 .card-trip {
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
+.card-trip h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
 
 .card-trip h2 {
   font-size: 16px;
@@ -70,7 +76,7 @@
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
 }
