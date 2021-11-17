@@ -5,8 +5,8 @@
       <h1>Booking <%= @profile_sitter.user.first_name %> </h1>
     </div>
     <%= simple_form_for([@profile_sitter, @booking]) do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true %>
       <%= f.submit class:'btn-booking'%>
     <% end %>
   </div>
