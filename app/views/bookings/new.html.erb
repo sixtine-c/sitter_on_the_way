@@ -1,7 +1,12 @@
-<h1>Booking <%= @profile_sitter.user.first_name %> </h1>
-
-<%= simple_form_for([@profile_sitter, @booking]) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit %>
-<% end %>
+<div class="card-container">
+  <div class="form-card">
+    <div class="title">
+      <h1>Booking <%= @profile_sitter.user.first_name %> </h1>
+    </div>
+    <%= simple_form_for([@profile_sitter, @booking]) do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit class:'btn-booking'%>
+    <% end %>
+  </div>
+</div>
