@@ -24,7 +24,7 @@ class ProfileSittersController < ApplicationController
     @profile_sitter.user = current_user
     authorize @profile_sitter
     if @profile_sitter.save
-      redirect_to profile_sitter_path(@profile_sitter)
+      redirect_to profile_sitters_path
     else
       render:new
     end
