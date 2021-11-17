@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
         <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
-        <a href="#" class="btn-sitter">See more</a>
+        <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
       </div>
     </div>
     <% end  %>

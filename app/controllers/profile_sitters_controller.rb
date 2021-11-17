@@ -1,5 +1,8 @@
 class ProfileSittersController < ApplicationController
+
+  SPECIES = ['dog', 'cat', 'snake', 'spider', 'parrot']
   skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     @profile_sitters = policy_scope(ProfileSitter.includes(:user))
