@@ -7,13 +7,13 @@
     <%= link_to "Owner", "#", class: "btn-user-status" %>
   </div>
   <% if @bookings.any? %>
-    <% if @booking.profile_sitter.id == current_user.id %>
+    <%# <% if @booking.profile_sitter.id == current_user.id %>
     <%# stocker booking avec .profile_sitter.id == current_user.id dans un array %>
     <%# demander a un TA %>
       <%# -------- When sitter -------- %>
       <div class="">
-        <div class="cards-category m-4">
           <% @bookings.each do |booking| %>
+        <div class="cards-category m-4">
             <div class="inner-card">
               <h4><%= booking.profile_sitter.user.first_name %></h4>
             </div>
@@ -60,7 +60,7 @@
         </div>
       </div>
   <% end %>
-<% end %>
+<%# <% end %> %>
 
 <%# si pas de booking, rajouter une phrase qui dis 'you haven't any booking yet' %>
 <%# triple bouton, quand tu cliques sur 'no anwser' ou 'decline' ou 'accepted'
