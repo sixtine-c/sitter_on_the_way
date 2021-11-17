@@ -1,11 +1,13 @@
-<div class="card-container m-5 h-25 d-flex">
-  <div class="form-card p-5 h-25">
+<div class="card-container">
+  <div class="form-card p-4 h-50 d-flex justify-content-center">
     <%= simple_form_for([@profile_sitter]) do |f| %>
+      <div class="justify-content-center">
         <%= f.input :description %>
         <%= f.input :address %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit class:'btn-booking'%>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.submit class:'btn-planning'%>
+      </div>
     <% end %>
   </div>
 </div>
