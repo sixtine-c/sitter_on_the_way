@@ -6,15 +6,18 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
+    @booking.user_id = current_user.id
     @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
-
   end
 
   def create
-    authorize @booking
     @booking = Booking.new(booking_params)
-    # @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
-    # @user = User.find(params:[:user_id])
+    authorize @booking
+    @booking.user = current_user
+    @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
+    @booking.profile_sitter = @profile_sitter
+    @booking.status = 'No answer'
     if @booking.save
       redirect_to bookings_path
     else
@@ -31,7 +34,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date, :profile_sitter_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
 end

@@ -1,0 +1,7 @@
+<h1>Booking <%= @profile_sitter.user.first_name %> </h1>
+
+<%= simple_form_for([@profile_sitter, @booking]) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
