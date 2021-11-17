@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index] do
+    member do
+      patch '/accepts', to: 'bookings#accepts'
+      patch '/decline', to: 'bookings#decline'
+    end
+  end
 
   get '/booking/:id/reply', to: 'bookings#reply'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
