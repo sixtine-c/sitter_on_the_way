@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @profile_sitters = ProfileSitter.all
+    @booking = Booking.new
   end
 end

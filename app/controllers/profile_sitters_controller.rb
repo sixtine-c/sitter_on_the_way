@@ -1,4 +1,5 @@
 class ProfileSittersController < ApplicationController
+  SPECIES = ['dog', 'cat', 'snake', 'spider', 'parrot']
 
   def index
     @profile_sitters = policy_scope(ProfileSitter.includes(:user))
