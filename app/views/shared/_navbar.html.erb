@@ -25,6 +25,7 @@
                 <li><%= link_to "My bookings", bookings_path, class: "nav-link" %></li>
                 <li><%= link_to "Edit profile",  edit_user_registration_path, class: "nav-link" %></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                <li><%= link_to "New availability", new_profile_sitter_path, class:'nav-link' %></li>
               </ul>
       <% else %>
         <li class="nav-item">
