@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
-
   end
 
   def create
