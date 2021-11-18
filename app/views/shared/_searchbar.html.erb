@@ -1,0 +1,8 @@
+<%= form_tag profile_sitters_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "Type your adress to find a sitter near you"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
