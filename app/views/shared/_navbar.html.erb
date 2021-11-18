@@ -2,7 +2,6 @@
   <%= link_to "/", class: "navbar-brand" do %>
      <%= image_tag 'snake.png' %>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,6 +25,7 @@
                 <li><%= link_to "My bookings", bookings_path, class: "nav-link" %></li>
                 <li><%= link_to "Edit profile",  edit_user_registration_path, class: "nav-link" %></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                <li><%= link_to "New availability", new_profile_sitter_path, class:'nav-link' %></li>
               </ul>
       <% else %>
         <li class="nav-item">
@@ -35,3 +35,6 @@
     </ul>
   </div>
 </div>
+
+
+<%# <%= link_to (image_tag "loupe.jpeg"), profile_sitters_path class: "test" %>

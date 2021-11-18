@@ -6,61 +6,64 @@
     <%= link_to "Sitter", "#", class: "btn-user-status" %>
     <%= link_to "Owner", "#", class: "btn-user-status" %>
   </div>
-  <% if @bookings.any? %>
-    <% if @booking.profile_sitter.id == current_user.id %>
+    <%# <% if @booking.profile_sitter.id == current_user.id %>
     <%# stocker booking avec .profile_sitter.id == current_user.id dans un array %>
     <%# demander a un TA %>
       <%# -------- When sitter -------- %>
-      <div class="">
-        <div class="cards-category m-4">
-          <% @bookings.each do |booking| %>
-            <div class="inner-card">
-              <h4><%= booking.profile_sitter.user.first_name %></h4>
-            </div>
-            <div class="inner-card">
-              <p><%= booking.start_date %></p>
-              <p><%= booking.end_date %></p>
-            </div>
-            <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
-            <div class="inner-card">
-              <p><%= booking.status %></p>
-            </div>
-            <div class="inner-card" id='accept'>
-              <%= link_to "Accept", "#", class: "btn btn-ghost" %>
-            </div>
-          <% end %>
-        </div>
-        [] <<
-      </div>
-
-      <%# -------- When Owner --------- %>
-      <div class="d-none">
-        <div class="cards-category m-4">
-          <% @bookings.each do |booking| %>
-            <div class="card-element">
-              <p><%= booking.status %></p>
-              <div class="dates">
-                <%# <%= booking.profile_sitter.first_name %>
+  <% if @bookings.any? %>
+    <div class="">
+      <div class="card-container">
+        <% @bookings.each do |booking| %>
+          <div class="cards-category m-4">
+              <div class="inner-card">
+                <h4><%= booking.profile_sitter.user.first_name %></h4>
+              </div>
+              <div class="inner-card">
                 <p><%= booking.start_date %></p>
                 <p><%= booking.end_date %></p>
               </div>
-            </div>
-            <div class="accept">
-              <%= link_to "Accept", "#", class: "btn btn-ghost" %>
-            </div>
-          <% end %>
+              <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
+              <div class="inner-card">
+                <p><%= booking.status %></p>
+              </div>
+              <div class="d-flex justify-content-around mb-3" id='accept'>
+                <%= link_to "Accept", accepts_booking_path(booking), method: :patch, class: "btn-planning small" %>
+                <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn-planning small" %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+
+        <%# -------- When Owner --------- %>
+        <div class="d-none">
+          <div class="cards-category m-4">
+            <% @bookings.each do |booking| %>
+              <div class="card-element">
+                <p><%= booking.status %></p>
+                <div class="dates">
+                  <%# <%= booking.profile_sitter.first_name %>
+                  <p><%= booking.start_date %></p>
+                  <p><%= booking.end_date %></p>
+                </div>
+              </div>
+              <div class="accept">
+                <%= link_to "Accept", '#', class: "btn btn-ghost" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
+      <% else %>
+        <div class="card-check-sitters">
+          <h4>You don't have any bookings yet!</h4>
+          <div class="btn-check-sitters">
+            <p><%= link_to 'Check sitters around you', profile_sitters_path, class: "btn btn-ghost" %></p>
+          </div>
+        </div>
     </div>
-    <% else %>
-      <div class="card-check-sitters">
-        <h4>You don't have any bookings yet!</h4>
-        <div class="btn-check-sitters">
-          <p><%= link_to 'Check sitters around you', profile_sitters_path, class: "btn btn-ghost" %></p>
-        </div>
-      </div>
   <% end %>
-<% end %>
+</div>
+<%# <% end %>
 
 <%# si pas de booking, rajouter une phrase qui dis 'you haven't any booking yet' %>
 <%# triple bouton, quand tu cliques sur 'no anwser' ou 'decline' ou 'accepted'
