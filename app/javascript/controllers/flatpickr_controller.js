@@ -1,4 +1,3 @@
-import { Controller } from "@hotwired/stimulus";
 import Flatpickr from 'stimulus-flatpickr'
 
 // you can also import a translation file

@@ -14,6 +14,17 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user_id = current_user.id
     @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
+    @profile_start = @profile_sitter.start_date
+    @profile_end = @profile_sitter.end_date
+    @dates_not_available = Booking.where(profile_sitter: @profile_sitter)
+    unless @dates_not_available.nil?
+      @disable_date = []
+      @dates_not_available.each do |booking|
+        dates = {from: booking.start_date.strftime("%Y-%m-%d"), to: booking.end_date.strftime("%Y-%m-%d")}
+        @disable_date << dates
+      end
+    end
+
   end
 
   def create
