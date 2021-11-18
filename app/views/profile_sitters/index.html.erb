@@ -2,28 +2,32 @@
     <h3 class="index-title"> Find the perfect sitter for your pet! </h3>
 
 
-<div class="container d-flex">
-  <div class="cards mt-5">
-    <% @profile_sitters.each do |profile_sitter| %>
-    <div class="card-result-sitter" style="width: 18rem;">
-      <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
+    <div class="index-container-content d-flex">
+      <div class="index-cards">
+        <div class="cards mt-5">
+          <% @profile_sitters.each do |profile_sitter| %>
+            <div class="card-result-sitter" style="width: 22rem;">
+              <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
+              </div>
+              <div class="card-body">
+                <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
+                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
+                <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-        <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
-        <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
+
+      <div class="index-map mt-5 mx-3"
+          data-controller="mapbox"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+
     </div>
 
-    <div class="index-map mt-5 mx-3">
-
-        <div style="width: 100%; height: 600px;"
-          data-controller="mapbox"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-        </div>
-  </div>
-  <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %></p>
+  <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %>
+  </p>
 
 
 </div>
