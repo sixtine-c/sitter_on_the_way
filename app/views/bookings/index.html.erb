@@ -9,6 +9,7 @@
     <%= link_to "Sitter", bookings_path(type: "sitter"), class: "btn-user-status #{"active" if params["type"] == "sitter"}" %>
     <%= link_to "Owner", bookings_path, class: "btn-user-status #{"active" if params["type"] != "sitter"}" %>
   </div>
+  <%# ---- image ---- %>
   <%# ---- Card bookings ---- %>
   <div class="card-container">
     <% @bookings.each do |booking| %>
@@ -17,7 +18,10 @@
           <%# ---- Pour voir quand tu as booké un sitter ---- %>
           <% if @bookings.any? %>
             <div class="inner-card">
-              <h4><%= booking.profile_sitter.user.first_name %></h4>
+              <div>
+                <%= cl_image_tag booking.profile_sitter.user.photo.key, class: 'avatar-large avatar-border' %>
+              </div>
+                <h4 class="mb-0 mt-2"><%= booking.profile_sitter.user.first_name %></h4>
             </div>
             <div class="inner-card">
               <p><%= booking.start_date %></p>
@@ -25,13 +29,11 @@
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
             <div class="inner-card">
-              <p><%= booking.status %></p>
+              <p class='mt-3'><%= booking.status %></p>
             </div>
-            <% if booking.status == 'No answer' %>
-              <%= link_to accepts_booking_path(booking), method: :patch, class: "btn-accept-decline", id: 'accepts' do %>
-                <i class="fas fa-check"></i>
-              <% end %>
-            <% end %>
+                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts' do %>
+                  <i class="fas fa-ban"></i>
+                <% end %>
           <% else %>
             <div class="card-check-sitters">
               <h4>You don't have any bookings yet!</h4>
@@ -44,7 +46,10 @@
           <%# ---- Pour voir quand tu es booké en tant que sitter ---- %>
           <% if @bookings.any? %>
             <div class="inner-card">
-              <h4><%= booking.user.first_name %></h4>
+              <div>
+                <%= cl_image_tag booking.user.photo.key, class: 'avatar-large avatar-border' %>
+              </div>
+              <h4 class="mb-0 mt-2"><%= booking.user.first_name %></h4>
             </div>
             <div class="inner-card">
               <p><%= booking.start_date %></p>
@@ -52,15 +57,20 @@
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
             <div class="inner-card">
-              <p><%= booking.status %></p>
+              <p class='mt-3'><%= booking.status %></p>
             </div>
             <div class="d-flex accept-decline">
               <% if booking.status == 'No answer' %>
-                <%= link_to accepts_booking_path(booking), method: :patch, class: "btn-accept-decline", id: 'accepts' do %>
+                <%= link_to accepts_booking_path(booking), method: :patch, class: "btn-choice btn-accept-decline", id: 'accepts' do %>
                   <i class="fas fa-check"></i>
                 <% end %>
-                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-accept-decline", id: 'declines' do %>
+                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-accept-decline", id: 'declines' do %>
                   <i class="fas fa-times"></i>
+                <% end %>
+              <% end %>
+            <% if booking.status != 'No answer' %>
+            <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts' do %>
+                  <i class="fas fa-ban"></i>
                 <% end %>
               <% end %>
             </div>
