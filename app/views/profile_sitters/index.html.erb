@@ -1,13 +1,18 @@
 <div class="index-container">
     <h3 class="index-title"> Find the perfect sitter for your pet! </h3>
 
-
     <div class="index-container-content d-flex">
       <div class="index-cards">
         <div class="cards mt-5">
           <% @profile_sitters.each do |profile_sitter| %>
             <div class="card-result-sitter" style="width: 22rem;">
-              <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
+                  <% if profile_sitter.user.photo.attached? %>
+        <div class="card-img-top" style="background-image: url('<%= cl_image_path current_user.photo.key %>'); background-size: cover;">
+        </div>
+        <% else %>
+          <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
+          </div>
+        <% end %>
               </div>
               <div class="card-body">
                 <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>

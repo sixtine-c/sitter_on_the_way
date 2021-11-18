@@ -5,7 +5,12 @@ class ProfileSittersController < ApplicationController
 
 
   def index
-    @profile_sitters = policy_scope(ProfileSitter.includes(:user))
+    if params[:query].present?
+      sql_query = "users.first_name ILIKE :query"
+      @profile_sitters = policy_scope(ProfileSitter.joins(:user).where(sql_query, query: "%#{params[:query]}%"))
+    else
+      @profile_sitters = policy_scope(ProfileSitter)
+    end
   end
 
   def new
