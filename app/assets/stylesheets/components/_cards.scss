@@ -15,7 +15,7 @@
 .cards-category {
   display: flex;
   border-radius: 10px;
-  height: 450px;
+  height: 460px;
   width: 250px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: white;
@@ -36,8 +36,7 @@
   padding: 4px;
 }
 
-#accept {
-  width: 90px;
+.cards-category > #accept {
   text-decoration: none;
   &:hover {
     color: white;

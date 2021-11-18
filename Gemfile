@@ -26,6 +26,10 @@ gem 'pundit'
 # #gem pg-search for searchbar
 # gem 'pg_search'
 
+#gem geocoder
+gem "geocoder"
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

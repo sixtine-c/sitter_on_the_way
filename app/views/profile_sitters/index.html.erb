@@ -1,29 +1,38 @@
-<div class="index-title">
-  <h3> Find the perfect sitter for your pet! </h3>
-</div>
+<div class="index-container">
+    <h3 class="index-title"> Find the perfect sitter for your pet! </h3>
 
-<div class="container d-flex">
-  <div class="cards mt-5">
-    <% @profile_sitters.each do |profile_sitter| %>
-    <div class="card-result-sitter" style="width: 18rem;">
-       <% if profile_sitter.user.photo.attached? %>
+    <div class="index-container-content d-flex">
+      <div class="index-cards">
+        <div class="cards mt-5">
+          <% @profile_sitters.each do |profile_sitter| %>
+            <div class="card-result-sitter" style="width: 22rem;">
+                  <% if profile_sitter.user.photo.attached? %>
         <div class="card-img-top" style="background-image: url('<%= cl_image_path current_user.photo.key %>'); background-size: cover;">
         </div>
         <% else %>
           <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
           </div>
         <% end %>
-      <div class="card-body">
-        <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-        <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
-        <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
+              </div>
+              <div class="card-body">
+                <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
+                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
+                <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <% end  %>
-  </div>
 
-  <div class="container-map mt-5 mx-5">
-      <h1>bientot une map</h1>
-  </div>
+      <div class="index-map mt-5 mx-3"
+          data-controller="mapbox"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
+    </div>
+
+  <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %>
+  </p>
+
+
 </div>
-<p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %></p>

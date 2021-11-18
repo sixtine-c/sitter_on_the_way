@@ -1,0 +1,25 @@
+
+.index-container{
+  margin: 30px;
+
+}
+
+.index-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.index-cards {
+  flex-grow: 1;
+
+}
+
+.index-map {
+  flex-basis: 600px;
+  position: sticky;
+  position: relative;
+
+  height: calc(100vh - 50px);
+  width: 100%;
+  top: 0;
+}
