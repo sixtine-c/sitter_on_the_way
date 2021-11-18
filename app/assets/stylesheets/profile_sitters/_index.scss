@@ -21,6 +21,8 @@
 
 .index-cards {
   flex-grow: 1;
+  // margin-right: 42%;
+  width: 58%
 
 }
 
@@ -29,4 +31,8 @@
   position: fixed;
   top: 230px;
   right: -30px;
+}
+
+pink {
+  color: #C56996;
 }
