@@ -1,11 +1,21 @@
-
+.index-bar {
+  padding: 20px;
+  background-color: #E2DBDD;
+  // background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.07));
+  position: sticky;
+  top: 50px;
+  height: 180px;
+  z-index: 100;
+}
 .index-container{
   margin: 30px;
+  position: relative;
 
 }
 
+
 .index-title {
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
 }
 
@@ -17,8 +27,6 @@
 .index-map {
   // flex-basis: 600px;
   position: fixed;
-
-
-  top: 0;
-  right: 0;
+  top: 230px;
+  right: -30px;
 }

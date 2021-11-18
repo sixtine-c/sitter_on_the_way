@@ -20,7 +20,7 @@ nicolas = User.create(first_name: 'Nicolas', last_name: 'Bischoff', email: 'nico
 lilas = User.create(first_name: 'Lilas', last_name: 'Marchand', email: 'lilas@lewagon.com', password: 'jesuisLilas', password_confirmation: 'jesuisLilas')
 
 puts 'Creating profile sitter'
-brice_profile = ProfileSitter.create( description: 'profile sitter 1', address: '16 villa gaudelet 75011 Paris', user: brice, start_date: '2021-11-16', end_date: '2021-12-03')
+brice_profile = ProfileSitter.create( description: "J'adore les animaux ce sont des êtres vraiment indispensables pour moi. Je me donne à fond pour subvenir à leurs besoins et maintenir leur sécurité en tout temps.Je suis quelqu'un de très sportif et très calme.J'aime la cuisine, le cinéma, l'animation japonaise et la musique et bien sûr nos boules de poils!", address: '16 villa gaudelet 75011 Paris', price: 15, user: brice, start_date: '2021-11-16', end_date: '2021-12-03')
 sixtine_profile = ProfileSitter.create( description: 'profile sitter 2', address: '21 rue de la pompe 75016 Paris', user: sixtine, start_date: '2021-12-03', end_date: '2021-12-15')
 nicolas_profile = ProfileSitter.create( description: 'profile sitter 3', address: '29 Bis rue des Francs Bourgois 75004 Paris', user: nicolas, start_date: '2022-01-03', end_date: '2022-02-15')
 lilas_profile = ProfileSitter.create( description: 'profile sitter 4', address: '3 Rue Geoffroy l\'Angevin 75004 Paris', user: lilas, start_date: '2022-02-03', end_date: '2022-03-15')

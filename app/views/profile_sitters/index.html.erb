@@ -1,12 +1,14 @@
+<div class="index-bar">
+  <h3 class="index-title"> Find the perfect sitter for your pet near XX ! </h3>
+      <%= render 'shared/searchbar'%>
+</div>
+
+
 <div class="index-container">
-    <h3 class="index-title"> Find the perfect sitter for your pet! </h3>
-
-    <div class="index-container-content d-flex">
       <div class="index-cards">
-        <div class="cards mt-5">
+        <div class="cards mt-1">
           <% @profile_sitters.each do |profile_sitter| %>
-
-            <div class="card-result-sitter" style="width: 22rem;">
+            <div class="card-result-sitter" >
               <% if profile_sitter.user.photo.attached? %>
                 <div class="card-img-top" style="background-image: url('<%= cl_image_path profile_sitter.user.photo.key %>'); background-size: cover;">
                 </div>
@@ -17,24 +19,22 @@
 
               <div class="card-body">
                 <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p> <%= profile_sitter.address %></p>
+                <p class="card-result- sitter-text"> <%= profile_sitter.description.slice(0..140) %>...</p>
                 <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
               </div>
             </div>
           <% end %>
         </div>
       </div>
-
-      <div class="index-map mt-5 mx-3" style="height: 90vh; width: 30%;"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-
-    </div>
-
-  <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %>
-  </p>
+          <div class="index-map mx-3" style="height: 90vh; width:40%;"
+              data-controller="mapbox"
+              data-mapbox-markers-value="<%= @markers.to_json %>"
+              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
 
 
-</div>
+
+
+    <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %>
+    </p>
+  </div>
