@@ -1,6 +1,7 @@
 
 .index-container{
-  margin: 30px;;
+  margin: 30px;
+
 }
 
 .index-title {
@@ -16,5 +17,9 @@
 .index-map {
   flex-basis: 600px;
   position: sticky;
-  // top: 0;
+  position: relative;
+
+  height: calc(100vh - 50px);
+  width: 100%;
+  top: 0;
 }
