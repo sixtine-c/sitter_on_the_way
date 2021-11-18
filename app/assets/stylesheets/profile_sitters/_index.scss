@@ -15,11 +15,10 @@
 }
 
 .index-map {
-  flex-basis: 600px;
-  position: sticky;
-  position: relative;
+  // flex-basis: 600px;
+  position: fixed;
 
-  height: calc(100vh - 50px);
-  width: 100%;
+
   top: 0;
+  right: 0;
 }

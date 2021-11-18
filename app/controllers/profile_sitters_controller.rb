@@ -6,6 +6,13 @@ class ProfileSittersController < ApplicationController
 
   def index
     @profile_sitters = policy_scope(ProfileSitter.includes(:user))
+
+    @markers = @profile_sitters.geocoded.map do |profile_sitter|
+      {
+        lat: profile_sitter.latitude,
+        lng: profile_sitter.longitude
+      }
+    end
   end
 
   def new

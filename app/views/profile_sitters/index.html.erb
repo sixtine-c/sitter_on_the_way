@@ -11,7 +11,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
+                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p> <%= profile_sitter.address %></p>
                 <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
               </div>
             </div>
@@ -19,8 +19,9 @@
         </div>
       </div>
 
-      <div class="index-map mt-5 mx-3"
+      <div class="index-map mt-5 mx-3" style="height: 90vh; width: 30%;"
           data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
 
