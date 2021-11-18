@@ -5,6 +5,16 @@ class ProfileSittersController < ApplicationController
 
 
   def index
+
+    @profile_sitters = policy_scope(ProfileSitter.includes(:user))
+
+    @markers = @profile_sitters.geocoded.map do |profile_sitter|
+      {
+        lat: profile_sitter.latitude,
+        lng: profile_sitter.longitude
+      }
+    end
+
     if params[:query].present?
       sql_query = "users.first_name ILIKE :query"
       @profile_sitters = policy_scope(ProfileSitter.joins(:user).where(sql_query, query: "%#{params[:query]}%"))
@@ -12,6 +22,7 @@ class ProfileSittersController < ApplicationController
       @profile_sitters = policy_scope(ProfileSitter)
     end
   end
+
 
   def new
     @profile_sitter = ProfileSitter.new

@@ -5,18 +5,19 @@
       <div class="index-cards">
         <div class="cards mt-5">
           <% @profile_sitters.each do |profile_sitter| %>
+
             <div class="card-result-sitter" style="width: 22rem;">
-                  <% if profile_sitter.user.photo.attached? %>
-        <div class="card-img-top" style="background-image: url('<%= cl_image_path current_user.photo.key %>'); background-size: cover;">
-        </div>
-        <% else %>
-          <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
-          </div>
-        <% end %>
-              </div>
+              <% if profile_sitter.user.photo.attached? %>
+                <div class="card-img-top" style="background-image: url('<%= cl_image_path profile_sitter.user.photo.key %>'); background-size: cover;">
+                </div>
+              <% else %>
+                <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
+                </div>
+              <% end %>
+
               <div class="card-body">
                 <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p>
+                <p class="card-result- sitter-text"> <%= profile_sitter.description %></p> <%= profile_sitter.address %></p>
                 <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter" %>
               </div>
             </div>
@@ -24,8 +25,9 @@
         </div>
       </div>
 
-      <div class="index-map mt-5 mx-3"
+      <div class="index-map mt-5 mx-3" style="height: 90vh; width: 30%;"
           data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
 
