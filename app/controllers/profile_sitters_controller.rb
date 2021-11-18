@@ -11,7 +11,8 @@ class ProfileSittersController < ApplicationController
     @markers = @profile_sitters.geocoded.map do |profile_sitter|
       {
         lat: profile_sitter.latitude,
-        lng: profile_sitter.longitude
+        lng: profile_sitter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { profile_sitter: profile_sitter })
       }
     end
 
