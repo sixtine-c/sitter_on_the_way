@@ -110,10 +110,7 @@
   }
 }
 
-.btn-accept-decline {
-  position: relative;
-  top: 18px;
-  left: 172px;
+.btn-choice {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,9 +121,20 @@
   color: black;
   text-decoration: none;
   margin: 4px;
+  padding: 7px;
   box-shadow: 0 0 7px rgba(0,0,0,0.4);
   &:hover {
     background-color: #E2DBDD;
     color: white;
   }
+}
+
+.btn-accept-decline {
+  position: relative;
+  top: -16px;
+  left: 172px;
+}
+.btn-cancel {
+  position: relative;
+  top: -16px;
 }
