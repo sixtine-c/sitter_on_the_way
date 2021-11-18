@@ -1,7 +1,12 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = policy_scope(Booking).order(created_at: :desc)
+    if params["type"] == "sitter"
+      @bookingee = policy_scope(Booking)
+      @bookings = BookingPolicy::Scope.new(current_user, Booking).my_sitter_bookings
+    else
+      @bookings = policy_scope(Booking).order(created_at: :desc)
+    end
   end
 
   def new
