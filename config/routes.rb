@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       patch '/accepts', to: 'bookings#accepts'
       patch '/decline', to: 'bookings#decline'
+      patch '/cancel', to: 'bookings#cancel'
     end
   end
 
