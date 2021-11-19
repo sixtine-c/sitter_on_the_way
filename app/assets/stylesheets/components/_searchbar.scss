@@ -17,11 +17,14 @@
   background-color: rgb(231, 212, 212);
   padding-left: 20px;
   padding-right: 20px;
+  &:hover{
+    background-color: rgb(228, 189, 189);
+  }
 }
 
 .input-group{
   justify-content: center;
   &.left-searchbar {
-    justify-content: left!important;
+    justify-content: left;
   }
 }
