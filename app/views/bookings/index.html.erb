@@ -35,8 +35,8 @@
                 <h4 class="mb-0 mt-2"><%= booking.profile_sitter.user.first_name %></h4>
             </div>
             <div class="inner-card">
-              <p><%= booking.start_date %></p>
-              <p><%= booking.end_date %></p>
+              <p><%= booking.start_date.strftime('%B %d') %></p>
+              <p><%= booking.end_date.strftime('%B %d') %></p>
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
             <div class="inner-card pb-3">
@@ -56,8 +56,8 @@
               <h4 class="mb-0 mt-2"><%= booking.user.first_name %></h4>
             </div>
             <div class="inner-card">
-              <p><%= booking.start_date %></p>
-              <p><%= booking.end_date %></p>
+              <p><%= booking.start_date.strftime('%B %d') %></p>
+              <p><%= booking.end_date.strftime('%B %d') %></p>
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
             <div class="inner-card pb-3">
