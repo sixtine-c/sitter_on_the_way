@@ -1,6 +1,10 @@
 <div class="index-bar">
   <h3 class="index-title"> Find the perfect sitter for your pet near XX ! </h3>
+
+  <div class="left-searchbar input-group">
+
   <div class="form-control-index">
+
       <%= render 'shared/searchbar'%>
   </div>
 </div>
@@ -9,36 +13,40 @@
 <div class="index-container">
       <div class="index-cards">
         <div class="cards mt-1">
-          <% @profile_sitters.each do |profile_sitter| %>
-            <div class="card-result-sitter" >
-              <% if profile_sitter.user.photo.attached? %>
-                <div class="card-img-top" style="background-image: url('<%= cl_image_path profile_sitter.user.photo.key %>'); background-size: cover;">
-                </div>
-              <% else %>
-                <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
-                </div>
-              <% end %>
-
-              <div class="card-body">
-                <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-                <p class="card-result- sitter-text"> <%= profile_sitter.description.slice(0..140) %>...</p>
-                <hr>
-
-                <div class="card-botton d-flex justify-content-between">
-                  <div class="dates">
-                    <p>available from <strong><pink><%= profile_sitter.start_date.strftime("%B %d") %></pink></strong> to <strong><pink> <%= profile_sitter.end_date.strftime("%B %d") %> </pink></strong> </p>
-
+          <% if @profile_sitters != [] %>
+            <% @profile_sitters.each do |profile_sitter| %>
+              <div class="card-result-sitter" >
+                <% if profile_sitter.user.photo.attached? %>
+                  <div class="card-img-top" style="background-image: url('<%= cl_image_path profile_sitter.user.photo.key %>'); background-size: cover;">
                   </div>
-                  <div class="price">
-                    <p> <pink><strong><%= profile_sitter.price %>€ </pink></strong>/day.
-                    </p>
+                <% else %>
+                  <div class="card-img-top" style="background-image: url('https://source.unsplash.com/YozNeHM8MaA'); background-size: cover;">
                   </div>
+                <% end %>
+
+                <div class="card-body">
+                  <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
+                  <p class="card-result- sitter-text"> <%= profile_sitter.description.slice(0..140) %>...</p>
+                  <hr>
+
+                  <div class="card-botton d-flex justify-content-between">
+                    <div class="dates">
+                      <p>available from <strong><pink><%= profile_sitter.start_date.strftime("%B %d") %></pink></strong> to <strong><pink> <%= profile_sitter.end_date.strftime("%B %d") %> </pink></strong> </p>
+
+                    </div>
+                    <div class="price">
+                      <p> <pink><strong><%= profile_sitter.price %>€ </pink></strong>/day.
+                      </p>
+                    </div>
+                  </div>
+                  <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter hide" %>
                 </div>
-                <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter hide" %>
               </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+          <% else %>
+          <h3 class="text-center mb-5">There is no sitter around you</h3>
+         <% end %>
       </div>
           <div class="index-map mx-3" style="height: 90vh; width:40%;"
               data-controller="mapbox"

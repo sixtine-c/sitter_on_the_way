@@ -19,13 +19,14 @@ class ProfileSittersController < ApplicationController
     if params[:query].present?
       # sql_query = "profile_sitters.address ILIKE :query"
       test = params[:query]
-       @profile_sitters = @profile_sitters.near(test, 10).geocoded
-       @markers = @profile_sitters.geocoded.map do |profile_sitter|
+      @profile_sitters = @profile_sitters.near(test, 10).geocoded
+      @markers = @profile_sitters.geocoded.map do |profile_sitter|
       {
         lat: profile_sitter.latitude,
-        lng: profile_sitter.longitude
+        lng: profile_sitter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { profile_sitter: profile_sitter })
       }
-    end
+      end
     else
       @profile_sitters = policy_scope(ProfileSitter)
     end
