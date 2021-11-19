@@ -1,6 +1,6 @@
 <%# <style>body {background-color: #E2DBDD;} </style> %>
 <div class="index-bar">
-  <h3 class="index-title"> Find the perfect sitter for your pet near <%= params[:query] %> ! </h3>
+  <h3 class="index-title"> Find the perfect sitter for your pet! </h3>
 
   <div class="left-searchbar input-group">
       <%= render 'shared/searchbar'%>
@@ -25,19 +25,22 @@
                 <% end %>
 
                 <div class="card-body">
-                  <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
-                  <p class="card-result- sitter-text"> <%= profile_sitter.description.slice(0..140) %>...</p>
-                  <hr>
+                  <div class="card-body-without-hover">
+                    <h5 class="card-result-sitter-title"><%= profile_sitter.user.first_name %> <%= profile_sitter.user.last_name %></h5>
+                    <p class="card-result- sitter-text"> <%= profile_sitter.description.slice(0..140) %>...</p>
+                    <hr>
 
-                  <div class="card-botton d-flex justify-content-between">
-                    <div class="dates">
-                      <p>available from <strong><pink><%= profile_sitter.start_date.strftime("%B %d") %></pink></strong> to <strong><pink> <%= profile_sitter.end_date.strftime("%B %d") %> </pink></strong> </p>
+                    <div class="card-botton d-flex justify-content-between">
+                      <div class="dates">
+                        <p>available from <strong><pink><%= profile_sitter.start_date.strftime("%B %d") %></pink></strong> to <strong><pink> <%= profile_sitter.end_date.strftime("%B %d") %> </pink></strong> </p>
 
+                      </div>
+                      <div class="price">
+                        <p> <pink><strong><%= profile_sitter.price %>€ </pink></strong>/day.
+                        </p>
+                      </div>
                     </div>
-                    <div class="price">
-                      <p> <pink><strong><%= profile_sitter.price %>€ </pink></strong>/day.
-                      </p>
-                    </div>
+
                   </div>
                   <%= link_to "See more", profile_sitter_path(profile_sitter), class:"btn-sitter hide" %>
                 </div>
