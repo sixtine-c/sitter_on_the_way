@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-      <h2 class="mx-3 text-center fs-4">Available from <%= @profile_sitter.start_date.strftime("%B %d") %> to <%= @profile_sitter.end_date.strftime("%B %d") %></h2>
+      <h2 class="mx-3 text-center fs-4">Available from <%= @profile_sitter.start_date.strftime("%B %d") %> to <%= @profile_sitter.end_date.strftime("%B %d") %>, <pink><strong><%= @profile_sitter.price %>€ </pink></strong> per day.</h2>
     <hr>
     <p class="m-3"><%= @profile_sitter.description %></p>
   <div class="d-flex justify-content-center">
