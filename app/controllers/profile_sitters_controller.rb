@@ -64,6 +64,6 @@ class ProfileSittersController < ApplicationController
   private
 
   def profile_sitter_params
-    params.require(:profile_sitter).permit(:description, :address, :start_date, :end_date, :user_id)
+    params.require(:profile_sitter).permit(:description, :address, :start_date, :end_date, :user_id, :price)
   end
 end
