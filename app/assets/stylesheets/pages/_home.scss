@@ -2,11 +2,18 @@
 
 body {
   background-color: #E2DBDD;
+  background: linear-gradient(141deg, rgba(184,154,162,1) 0%, rgba(226,219,221,1) 61%, rgba(255,255,255,1) 100%);
+  // background-size: 100vh;
+
+background-attachment: fixed;
 }
 
 .container-home {
   padding-top: 0px;
   height: 100vh;
+  z-index: 100;
+  background-image:  url('homepage.png');
+
 
 }
 
@@ -19,6 +26,8 @@ body {
 //   height: 700px;
 
 // }
+
+
 .home-content {
   margin-top: 150px;
 }
