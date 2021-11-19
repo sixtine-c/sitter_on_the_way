@@ -61,11 +61,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(status: 'Declined')
     @booking.destroy
-    if params["type"] == "sitter"
-      redirect_to bookings_path(type: 'sitter')
-    else
-      redirect_to bookings_path
-    end
   end
 
   private
