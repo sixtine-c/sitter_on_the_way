@@ -1,6 +1,8 @@
 <div class="index-bar">
   <h3 class="index-title"> Find the perfect sitter for your pet near XX ! </h3>
+  <div class="form-control-index">
       <%= render 'shared/searchbar'%>
+  </div>
 </div>
 
 
@@ -43,10 +45,4 @@
               data-mapbox-markers-value="<%= @markers.to_json %>"
               data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-
-
-
-
-    <p class="p-3"><%= link_to "New availability", new_profile_sitter_path, class:'btn-booking' %>
-    </p>
   </div>
