@@ -20,7 +20,6 @@
     <%= link_to "Sitter", bookings_path(type: "sitter"), class: "btn-user-status #{"active" if params["type"] == "sitter"}" %>
     <%= link_to "Owner", bookings_path, class: "btn-user-status #{"active" if params["type"] != "sitter"}" %>
   </div>
-  <%# ---- image ---- %>
   <%# ---- Card bookings ---- %>
   <div class="card-container">
     <% @bookings.each do |booking| %>
@@ -38,11 +37,16 @@
               <p><%= booking.start_date.strftime('%B %d') %></p>
               <p><%= booking.end_date.strftime('%B %d') %></p>
             </div>
-            <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
-            <div class="inner-card pb-3">
+            <div class="inner-card" style="height: 145px; width:238px;" id="map"
+              data-controller="mapbox"
+              data-mapbox-markers-value="<%= [{lat: booking.profile_sitter.latitude, lng: booking.profile_sitter.longitude}].to_json %>"
+              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+            <%#= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
+            <div class="inner-card pb-3 bottom-card">
               <p class='mt-3'><%= booking.status %></p>
             </div>
-                <%= link_to cancel_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
+                <%= link_to cancel_booking_path(booking), method: :patch, class: "btn-choice btn-cancel adjustment", id: 'accepts', title: 'Cancel' do %>
                   <i class="fas fa-ban"></i>
                 <% end %>
           <% end %>
@@ -59,7 +63,10 @@
               <p><%= booking.start_date.strftime('%B %d') %></p>
               <p><%= booking.end_date.strftime('%B %d') %></p>
             </div>
-            <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
+            <div>
+              <p class="inner-card p-5">You're going to earn <%= booking.profile_sitter.price * (booking.end_date - booking.start_date).to_i %> €!</p>
+            </div>
+            <%#= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
             <div class="inner-card pb-3">
               <p class='mt-3'><%= booking.status %></p>
             </div>

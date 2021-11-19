@@ -15,7 +15,7 @@
 .cards-category {
   display: flex;
   border-radius: 10px;
-  height: 422px;
+  height: 397px;
   width: 250px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: white;
@@ -34,6 +34,12 @@
   width: 238px;
   margin: 6px;
   padding: 4px;
+  position: relative;
+}
+
+.bottom-card {
+  position:absolute;
+  bottom:0;
 }
 
 .top-card {
