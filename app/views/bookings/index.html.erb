@@ -4,9 +4,15 @@
   <% if params["type"] == "sitter" %>
     <h1>My requests</h1>
     <h4><%= pluralize @bookings.size, 'pet owner'%> booked you!</h4>
+    <% if @bookings.size == 0 %>
+      <p><%= link_to 'Add an availibility!', new_profile_sitter_path, class: "btn btn-ghost top-card" %></p>
+    <% end %>
   <% else %>
     <h1>My demands</h1>
     <h4>You booked <%= pluralize @bookings.size, 'sitter'%>!</h4>
+    <% if @bookings.size == 0 %>
+      <p><%= link_to 'Check sitters available around you!', profile_sitters_path, class: "btn btn-ghost top-card" %></p>
+    <% end %>
   <% end %>
   </div>
   <%# ---- Boutton Sitter et Owner ---- %>
@@ -36,16 +42,9 @@
             <div class="inner-card pb-3">
               <p class='mt-3'><%= booking.status %></p>
             </div>
-                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
+                <%= link_to cancel_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
                   <i class="fas fa-ban"></i>
                 <% end %>
-          <% else %>
-            <div class="card-check-sitters">
-              <h4>You don't have any bookings yet!</h4>
-              <div class="btn-check-sitters">
-                <p><%= link_to 'Check sitters available around you!', profile_sitters_path, class: "btn btn-ghost" %></p>
-              </div>
-            </div>
           <% end %>
         <% else %>
           <%# ---- Pour voir quand tu es booké en tant que sitter ---- %>
@@ -74,17 +73,10 @@
                 <% end %>
               <% end %>
             <% if booking.status != 'Pending answer' %>
-            <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
+            <%= link_to cancel_booking_path(booking, type: "sitter"), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
                   <i class="fas fa-ban"></i>
                 <% end %>
               <% end %>
-            </div>
-          <% else %>
-            <div class="card-check-sitters">
-              <h4>Nobody booked you yet! 😿</h4>
-              <div class="btn-check-sitters">
-                <%# <p><%= link_to 'Change your availibilities!', !!!!, class: "btn btn-ghost" %></p>
-              </div>
             </div>
           <% end %>
         <% end %>

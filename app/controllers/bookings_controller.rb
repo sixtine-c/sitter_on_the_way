@@ -60,8 +60,14 @@ class BookingsController < ApplicationController
     skip_authorization
     @booking = Booking.find(params[:id])
     @booking.update(status: 'Declined')
+    redirect_to bookings_path(type: 'sitter')
+  end
+
+  def cancel
+    skip_authorization
+    @booking = Booking.find(params[:id])
     @booking.destroy
-    if params["type"] == "sitter"
+    if params['type'] == 'sitter'
       redirect_to bookings_path(type: 'sitter')
     else
       redirect_to bookings_path
