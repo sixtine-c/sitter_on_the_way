@@ -142,4 +142,7 @@
 .btn-cancel {
   position: relative;
   top: -16px;
+  &.adjustment {
+    top: 45px;
+  }
 }

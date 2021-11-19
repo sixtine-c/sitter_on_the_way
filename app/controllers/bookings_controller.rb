@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
       @booking_scope = policy_scope(Booking)
       @bookings = BookingPolicy::Scope.new(current_user, Booking).my_sitter_bookings
     else
-      @bookings = policy_scope(Booking).order(created_at: :desc)
+      @bookings = policy_scope(Booking).includes(:user).order(created_at: :desc)
     end
   end
 
