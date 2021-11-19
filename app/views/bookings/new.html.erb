@@ -3,7 +3,7 @@
 <div class="card-container">
   <div class="form-card">
     <div class="title mb-5">
-      <h1>Let's book with <%= @profile_sitter.user.first_name %></h1>
+      <h1>Let's book with <%= @profile_sitter.user.first_name %> !</h1>
     </div>
     <%= simple_form_for([@profile_sitter, @booking]) do |f| %>
       <div class="justify-content-center">
@@ -20,7 +20,7 @@
             <%= f.text_field :end_date, input_html: { id: "range_end" }, placeholder: "To", id: 'secondRangeInput' %>
         </div>
         <div class="d-flex justify-content-center">
-      <%= f.button :submit, 'Book!', class:'btn-planning m-5'%>
+      <%= f.button :submit, 'Book!', class:'btn-planning', style: 'margin-top: 42px;'%>
         </div>
     <% end %>
   </div>
