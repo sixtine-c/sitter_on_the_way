@@ -15,7 +15,7 @@
 .cards-category {
   display: flex;
   border-radius: 10px;
-  height: 466px;
+  height: 422px;
   width: 250px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: white;
@@ -37,12 +37,19 @@
 }
 
 .top-card {
-  background-color: rgb(231, 212, 212);
+  font-family: "Work Sans", "Helvetica", "sans-serif";;
+  background-color: rgb(255, 255, 255);
   text-align: center;
   border-radius: 5px;
   width: 238px;
   margin: 6px;
-  padding: 4px;
+  margin-left: 0;
+  padding: 10px;
+  &:hover {
+    box-shadow: 0 0 7px rgba(0,0,0,0.4);
+    background-color: #B2A3A8;
+    color: white;
+  }
 }
 
 .cards-category > #accept {
