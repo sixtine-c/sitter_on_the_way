@@ -1,8 +1,13 @@
 <div class="container">
   <%# ---- Titre ---- %>
   <div id='booking-title'>
-    <h1>My bookings</h1>
-    <%# <h4><%=# pluralize @bookings.size, 'booking'</h4> %>
+  <% if params["type"] == "sitter" %>
+    <h1>My requests</h1>
+    <h4><%= pluralize @bookings.size, 'pet owner'%> booked you!</h4>
+  <% else %>
+    <h1>My demands</h1>
+    <h4>You booked <%= pluralize @bookings.size, 'sitter'%>!</h4>
+  <% end %>
   </div>
   <%# ---- Boutton Sitter et Owner ---- %>
   <div class="btn-user">
@@ -28,10 +33,10 @@
               <p><%= booking.end_date %></p>
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
-            <div class="inner-card">
+            <div class="inner-card pb-3">
               <p class='mt-3'><%= booking.status %></p>
             </div>
-                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts' do %>
+                <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
                   <i class="fas fa-ban"></i>
                 <% end %>
           <% else %>
@@ -56,11 +61,11 @@
               <p><%= booking.end_date %></p>
             </div>
             <%= image_tag 'paris-map.jpg', height: 180, width: 238, id: "map" %>
-            <div class="inner-card">
+            <div class="inner-card pb-3">
               <p class='mt-3'><%= booking.status %></p>
             </div>
             <div class="d-flex accept-decline">
-              <% if booking.status == 'No answer' %>
+              <% if booking.status == 'Pending answer' %>
                 <%= link_to accepts_booking_path(booking), method: :patch, class: "btn-choice btn-accept-decline", id: 'accepts' do %>
                   <i class="fas fa-check"></i>
                 <% end %>
@@ -68,8 +73,8 @@
                   <i class="fas fa-times"></i>
                 <% end %>
               <% end %>
-            <% if booking.status != 'No answer' %>
-            <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts' do %>
+            <% if booking.status != 'Pending answer' %>
+            <%= link_to decline_booking_path(booking), method: :patch, class: "btn-choice btn-cancel", id: 'accepts', title: 'Cancel' do %>
                   <i class="fas fa-ban"></i>
                 <% end %>
               <% end %>
