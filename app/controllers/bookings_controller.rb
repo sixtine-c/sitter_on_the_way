@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @profile_sitter = ProfileSitter.find(params[:profile_sitter_id])
     @booking.profile_sitter = @profile_sitter
-    @booking.status = 'No answer'
+    @booking.status = 'Pending answer'
     if @booking.save
       redirect_to bookings_path
     else
@@ -53,7 +53,7 @@ class BookingsController < ApplicationController
     skip_authorization
     @booking = Booking.find(params[:id])
     @booking.update(status: 'Accepted')
-    redirect_to bookings_path
+    redirect_to bookings_path(type: 'sitter')
   end
 
   def decline
@@ -61,7 +61,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(status: 'Declined')
     @booking.destroy
-    redirect_to bookings_path
+    if params["type"] == "sitter"
+      redirect_to bookings_path(type: 'sitter')
+    else
+      redirect_to bookings_path
+    end
   end
 
   private
