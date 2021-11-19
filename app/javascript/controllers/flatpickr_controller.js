@@ -4,7 +4,7 @@ import Flatpickr from 'stimulus-flatpickr'
 import { French } from 'flatpickr/dist/l10n/fr.js'
 
 // import a theme (could be in your main CSS entry too...)
-import 'flatpickr/dist/themes/dark.css'
+import 'flatpickr/dist/themes/material_orange.css'
 
 import rangePlugin from 'flatpickr/dist/plugins/rangePlugin.js'
 
